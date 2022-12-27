@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Graphics/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" type="Texture" id=7]
+
+[node name="Enviroment_Foreground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+z_index = 1
+motion_scale = Vector2( 2, 1 )
+motion_mirroring = Vector2( 928, 0 )
+
+[node name="Layer00009" type="Sprite" parent="ParallaxLayer"]
+z_index = 1
+texture = ExtResource( 7 )
+centered = false
+offset = Vector2( 0, -275 )
+region_rect = Rect2( 0, 0, 1920, 800 )
