@@ -35,10 +35,10 @@ position = Vector2( 320, 347.5 )
 shape = SubResource( 1 )
 
 [node name="Skeleton_Spawn_Point" type="Node2D" parent="World/Ground"]
-position = Vector2( -320, 201 )
+position = Vector2( -64, 255 )
 
 [node name="Skeleton_Spawn_Point2" type="Node2D" parent="World/Ground"]
-position = Vector2( 975, 201 )
+position = Vector2( 992, 255 )
 
 [node name="King" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 464, 320 )
