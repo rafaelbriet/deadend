@@ -5,6 +5,7 @@ enum SkeletonState { IDLE, FALLING, WALKING, ATTACKING, HIT, DIEING }
 const GRAVITY : float = 200.0
 
 export var walk_speed : float = 100.0
+export var attack_distance : float = 150.0
 
 var target : KinematicBody2D
 
@@ -65,7 +66,16 @@ func _physics_process_state(delta : float):
 				_animatedSprite.flip_h = false
 			else:
 				_animatedSprite.flip_h = true
+				
+			var distance_to_target = global_position.distance_to(target.global_position)
+			
+			if (distance_to_target < attack_distance):
+				change_state(SkeletonState.ATTACKING)
 		SkeletonState.ATTACKING:
+			var distance_to_target = global_position.distance_to(target.global_position)
+			
+			if (distance_to_target > attack_distance):
+				change_state(SkeletonState.WALKING)
 			pass
 		SkeletonState.HIT:
 			pass
