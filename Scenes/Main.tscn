@@ -41,7 +41,7 @@ position = Vector2( -320, 201 )
 position = Vector2( 975, 201 )
 
 [node name="King" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 304, 318 )
+position = Vector2( 464, 320 )
 scale = Vector2( 3, 3 )
 walk_speed = 200.0
 
