@@ -50,6 +50,7 @@ skeleton_scene = ExtResource( 8 )
 spawn_node_paths = [ NodePath("../Ground/Skeleton_Spawn_Point"), NodePath("../Ground/Skeleton_Spawn_Point2") ]
 target_node_path = NodePath("../King")
 skeleton_scale = Vector2( 3, 3 )
+spawn_enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 offset = Vector2( -464, 0 )
