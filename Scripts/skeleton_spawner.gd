@@ -2,6 +2,7 @@ extends Node2D
 
 export(PackedScene) var skeleton_scene
 export(Array, NodePath) var spawn_node_paths := []
+export var skeleton_scale : Vector2 = Vector2.ONE
 
 onready var _spawn_points : Array = _load_nodes(spawn_node_paths) 
 
@@ -12,6 +13,7 @@ func _spawn_skeleton():
 	for spawn_point in _spawn_points:
 		var skeleton = skeleton_scene.instance()
 		skeleton.position = spawn_point.position
+		skeleton.scale = skeleton.scale * skeleton_scale
 		add_child(skeleton)
 
 func _load_nodes(nodePaths : Array):
