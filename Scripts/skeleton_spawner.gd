@@ -2,9 +2,11 @@ extends Node2D
 
 export(PackedScene) var skeleton_scene
 export(Array, NodePath) var spawn_node_paths := []
+export(NodePath) var target_node_path
 export var skeleton_scale : Vector2 = Vector2.ONE
 
 onready var _spawn_points : Array = _load_nodes(spawn_node_paths) 
+onready var _target : KinematicBody2D = get_node(target_node_path)
 
 func _ready():
 	_spawn_skeleton()
@@ -14,6 +16,7 @@ func _spawn_skeleton():
 		var skeleton = skeleton_scene.instance()
 		skeleton.position = spawn_point.position
 		skeleton.scale = skeleton.scale * skeleton_scale
+		skeleton.target = _target
 		add_child(skeleton)
 
 func _load_nodes(nodePaths : Array):
