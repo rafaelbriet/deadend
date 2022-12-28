@@ -10,9 +10,11 @@ func _physics_process_state(delta: float) -> void:
 	if Input.is_action_pressed("move_left"):
 		root.velocity.x = -root.base_walk_speed
 		root.sprite.flip_h = true
+		root.flip_sword_hit_box(true)
 	elif Input.is_action_pressed("move_right"):
 		root.velocity.x = root.base_walk_speed
 		root.sprite.flip_h = false
+		root.flip_sword_hit_box(false)
 	else:
 		state_machine.transition_to("Idle_State")
 		

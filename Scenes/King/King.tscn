@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Run.png" type="Texture" id=2]
@@ -18,9 +18,11 @@
 [ext_resource path="res://Scenes/King/States/king_attack_3_state.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/King/States/king_attack_2_state.gd" type="Script" id=17]
 
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 26, 11 )
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 8.5, 25 )
+extents = Vector2( 8.5, 2.5 )
 
 [sub_resource type="Animation" id=22]
 resource_name = "Attack_1"
@@ -74,6 +76,18 @@ tracks/3/keys = {
 "args": [ true ],
 "method": "set_can_use_next_attack"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/SwordHitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -129,6 +143,18 @@ tracks/3/keys = {
 "method": "set_can_use_next_attack"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/SwordHitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "Attack_3"
@@ -168,6 +194,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/SwordHitBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -375,6 +413,21 @@ tracks/2/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/SwordHitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=21]
 resource_name = "Run"
 length = 0.8
@@ -420,17 +473,26 @@ tracks/2/keys = {
 script = ExtResource( 3 )
 animation_player_path = NodePath("AnimationPlayer")
 sprite_path = NodePath("Sprite")
+sword_hit_box_path = NodePath("Sprite/SwordHitBox")
 base_gravity = 980.0
 base_walk_speed = 300.0
 base_jump_impulse = 600.0
 base_jump_move_speed = 250.0
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 hframes = 4
+frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.5, 24 )
+[node name="SwordHitBox" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordHitBox"]
+position = Vector2( 45, 20 )
+shape = SubResource( 28 )
+disabled = true
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+position = Vector2( 3.5, 46.5 )
 shape = SubResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -442,6 +504,7 @@ anims/Fall = SubResource( 25 )
 anims/Hit = SubResource( 26 )
 anims/Idle = SubResource( 19 )
 anims/Jump = SubResource( 27 )
+anims/RESET = SubResource( 29 )
 anims/Run = SubResource( 21 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -465,3 +528,5 @@ script = ExtResource( 17 )
 
 [node name="Attack_3_State" type="Node" parent="StateMachine"]
 script = ExtResource( 16 )
+
+[connection signal="area_entered" from="Sprite/SwordHitBox" to="." method="_on_sword_hit_box_area_entered"]

@@ -2,7 +2,9 @@ extends SkeletonState
 
 
 func _enter(args := {}) -> void:
+	._enter(args)
 	root.velocity = Vector2.ZERO
+	root.animation_player.play("RESET")
 	root.animation_player.play("Attack")
 
 
