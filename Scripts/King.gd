@@ -1,27 +1,13 @@
+class_name King
 extends KinematicBody2D
 
-export var walk_speed : float = 400.0
+export var animation_player_path := NodePath()
+export var sprite_path := NodePath()
+export var base_gravity : float = 300
+export var base_walk_speed : float = 400
+export var base_jump_impulse : float = 800
 
-const GRAVITY : float = 200.0
+var velocity : Vector2 = Vector2.ZERO
 
-onready var _animation_player : AnimationPlayer = $AnimationPlayer
-onready var _sprite : Sprite = $Sprite
-
-var _velocity : Vector2 = Vector2()
-		
-func _physics_process(delta) -> void:
-	_velocity.y += delta * GRAVITY
-	
-	if Input.is_action_pressed("ui_right"):
-		_velocity.x = walk_speed
-		_animation_player.play("Run")
-		_sprite.flip_h = false
-	elif Input.is_action_pressed("ui_left"):
-		_velocity.x = -walk_speed
-		_animation_player.play("Run")
-		_sprite.flip_h = true
-	else:
-		_velocity.x = 0
-		_animation_player.play("Idle")
-
-	move_and_slide(_velocity, Vector2.UP)
+onready var animation_player : AnimationPlayer = get_node(animation_player_path)
+onready var sprite : Sprite = get_node(sprite_path)

@@ -43,7 +43,6 @@ position = Vector2( 992, 255 )
 [node name="King" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 464, 320 )
 scale = Vector2( 3, 3 )
-walk_speed = 200.0
 
 [node name="Skeleton_Spawner" parent="World" instance=ExtResource( 7 )]
 skeleton_scene = ExtResource( 8 )

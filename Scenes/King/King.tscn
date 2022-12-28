@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Run.png" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Attack2.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Attack1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Attack3.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/King/States/king_idle_state.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/King/States/king_run_state.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/King/States/king_air_state.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/StateMachine/state_machine.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/King/States/king_attack_state.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 8.5, 25 )
@@ -17,7 +22,6 @@ extents = Vector2( 8.5, 25 )
 [sub_resource type="Animation" id=22]
 resource_name = "Attack_1"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -385,10 +389,15 @@ tracks/2/keys = {
 
 [node name="King" type="KinematicBody2D"]
 script = ExtResource( 3 )
+animation_player_path = NodePath("AnimationPlayer")
+sprite_path = NodePath("Sprite")
+base_walk_speed = 300.0
+base_jump_impulse = 300.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 9 )
 hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.5, 24 )
@@ -404,3 +413,19 @@ anims/Hit = SubResource( 26 )
 anims/Idle = SubResource( 19 )
 anims/Jump = SubResource( 27 )
 anims/Run = SubResource( 21 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 14 )
+initial_state = NodePath("Idle_State")
+
+[node name="Idle_State" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="Run_State" type="Node" parent="StateMachine"]
+script = ExtResource( 12 )
+
+[node name="Air_State" type="Node" parent="StateMachine"]
+script = ExtResource( 13 )
+
+[node name="Attack_State" type="Node" parent="StateMachine"]
+script = ExtResource( 15 )
