@@ -419,8 +419,10 @@ tracks/2/keys = {
 script = ExtResource( 3 )
 animation_player_path = NodePath("AnimationPlayer")
 sprite_path = NodePath("Sprite")
+base_gravity = 980.0
 base_walk_speed = 300.0
-base_jump_impulse = 300.0
+base_jump_impulse = 600.0
+base_jump_move_speed = 250.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 8 )

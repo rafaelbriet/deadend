@@ -4,8 +4,10 @@ extends KinematicBody2D
 export var animation_player_path := NodePath()
 export var sprite_path := NodePath()
 export var base_gravity : float = 300
+export var gravity_multiplier : float = 2.0
 export var base_walk_speed : float = 400
 export var base_jump_impulse : float = 800
+export var base_jump_move_speed : float = 100
 
 var velocity : Vector2 = Vector2.ZERO
 var can_use_next_attack : bool = false
