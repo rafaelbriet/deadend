@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Enviroment_Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/ground_simple_follow.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Skeleton_Spawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Skeleton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Skeleton/Skeleton.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1544, 20.5 )
@@ -49,7 +49,6 @@ skeleton_scene = ExtResource( 8 )
 spawn_node_paths = [ NodePath("../Ground/Skeleton_Spawn_Point"), NodePath("../Ground/Skeleton_Spawn_Point2") ]
 target_node_path = NodePath("../King")
 skeleton_scale = Vector2( 3, 3 )
-spawn_enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 offset = Vector2( -464, 0 )
