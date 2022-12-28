@@ -4,3 +4,8 @@
 
 [node name="Skeleton_Spawner" type="Node2D"]
 script = ExtResource( 1 )
+spawn_timer_path = NodePath("SpawnTimer")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
