@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Run.png" type="Texture" id=2]
@@ -14,14 +14,16 @@
 [ext_resource path="res://Scenes/King/States/king_run_state.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/King/States/king_air_state.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/StateMachine/state_machine.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/King/States/king_attack_state.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/King/States/king_attack_1_state.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/King/States/king_attack_3_state.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/King/States/king_attack_2_state.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 8.5, 25 )
 
 [sub_resource type="Animation" id=22]
 resource_name = "Attack_1"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -53,16 +55,29 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 3 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_can_use_next_attack"
+} ]
 }
 
 [sub_resource type="Animation" id=23]
 resource_name = "Attack_2"
-length = 0.4
-loop = true
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -94,16 +109,29 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 3 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_can_use_next_attack"
+} ]
 }
 
 [sub_resource type="Animation" id=24]
 resource_name = "Attack_3"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -395,9 +423,8 @@ base_walk_speed = 300.0
 base_jump_impulse = 300.0
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 hframes = 4
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.5, 24 )
@@ -427,5 +454,11 @@ script = ExtResource( 12 )
 [node name="Air_State" type="Node" parent="StateMachine"]
 script = ExtResource( 13 )
 
-[node name="Attack_State" type="Node" parent="StateMachine"]
+[node name="Attack_1_State" type="Node" parent="StateMachine"]
 script = ExtResource( 15 )
+
+[node name="Attack_2_State" type="Node" parent="StateMachine"]
+script = ExtResource( 17 )
+
+[node name="Attack_3_State" type="Node" parent="StateMachine"]
+script = ExtResource( 16 )

@@ -12,7 +12,7 @@ func _process_state(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("Attack_State")
+		state_machine.transition_to("Attack_1_State")
 	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air_State", {do_jump = true})

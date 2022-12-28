@@ -19,7 +19,7 @@ func _physics_process_state(delta: float) -> void:
 	root.move_and_slide(root.velocity, Vector2.UP)
 	
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("Attack_State")
+		state_machine.transition_to("Attack_1_State")
 	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air_State", {do_jump = true})
