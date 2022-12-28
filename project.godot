@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "King",
 "language": "GDScript",
-"path": "res://Scripts/King.gd"
+"path": "res://Scenes/King/King.gd"
 }, {
 "base": "State",
 "class": "KingState",
