@@ -17,5 +17,5 @@ func _process_state(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air_State", {do_jump = true})
 	
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		state_machine.transition_to("Run_State")
