@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 
 func transition_to(target_state_name: String, args: Dictionary = {}) -> void:
 	if not has_node(target_state_name):
+		push_error("State \"" + target_state_name + "\" not found.")
 		return
 	
 	_current_state._exit()
