@@ -6,6 +6,7 @@ func _enter(args := {}) -> void:
 	root.animation_player.play("RESET")
 	root.animation_player.play("Death")
 	root.animation_player.connect("animation_finished", self, "_on_animation_finished")
+	root.score.add_score(root.base_score_amount)
 
 
 func _exit() -> void:

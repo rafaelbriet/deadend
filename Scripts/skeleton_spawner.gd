@@ -7,10 +7,12 @@ export var spawn_timer_path := NodePath()
 export var skeleton_scale : Vector2 = Vector2.ONE
 export var spawn_enabled: bool = true
 export var time_between_spawn: float = 1
+export var score_path := NodePath()
 
 onready var _spawn_points : Array = _load_nodes(spawn_node_paths) 
 onready var _target : KinematicBody2D = get_node(target_node_path)
 onready var _spawn_timer: Timer = get_node(spawn_timer_path)
+onready var _score : Score = get_node(score_path)
 
 func _ready():
 	_spawn_timer.start(time_between_spawn)
@@ -32,6 +34,7 @@ func _spawn_skeleton():
 		skeleton.position = spawn_point.global_position
 		skeleton.scale = skeleton.scale * skeleton_scale
 		skeleton.target = _target
+		skeleton.score = _score
 		add_child(skeleton)
 
 func _load_nodes(nodePaths : Array):

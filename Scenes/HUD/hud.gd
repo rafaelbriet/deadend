@@ -18,7 +18,7 @@ func _ready() -> void:
 	_hit_points_bar.value = _king.hit_points.base_max_hit_points
 	
 	# Set up level score
-	_score.connect("score_changer", self, "_on_score_changed")
+	_score.connect("score_changed", self, "_on_score_changed")
 	_score_board.set_text(str(_score.current_score))
 
 func _on_hit_points_damaged() -> void:

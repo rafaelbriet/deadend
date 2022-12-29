@@ -30,6 +30,9 @@ layer = 0
 
 [node name="Level" type="Node" parent="."]
 
+[node name="Score" type="Node" parent="Level"]
+script = ExtResource( 11 )
+
 [node name="Ground" type="StaticBody2D" parent="Level"]
 position = Vector2( -4, 143 )
 script = ExtResource( 6 )
@@ -64,9 +67,7 @@ spawn_node_paths = [ NodePath("../Ground/Skeleton_Spawn_Point"), NodePath("../Gr
 target_node_path = NodePath("../King")
 skeleton_scale = Vector2( 3, 3 )
 time_between_spawn = 5.0
-
-[node name="Score" type="Node" parent="Level"]
-script = ExtResource( 11 )
+score_path = NodePath("../Score")
 
 [node name="HUD" parent="Level" instance=ExtResource( 10 )]
 king_path = NodePath("../King")
