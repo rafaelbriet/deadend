@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Graphics/Pxiel Art UI borders/Pxiel Art UI borders.png" type="Texture" id=1]
+
+[resource]
+texture = ExtResource( 1 )
+region_rect = Rect2( 16, 144, 96, 96 )
+margin_left = 16.0
+margin_right = 16.0
+margin_top = 16.0
+margin_bottom = 16.0
+expand_margin_left = 4.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
