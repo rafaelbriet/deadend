@@ -6,7 +6,12 @@ signal hit_points_depleted
 
 export var base_max_hit_points : int = 100
 
-var _current_hit_points : int = base_max_hit_points
+var _current_hit_points : int
+
+
+func _ready()-> void:
+	_current_hit_points = base_max_hit_points
+
 
 func damage(damageAmount: int) -> void:
 	print("%s took %d damage and has %d hit points left" % [owner.name, damageAmount, _current_hit_points])
