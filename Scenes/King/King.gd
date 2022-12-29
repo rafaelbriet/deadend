@@ -4,6 +4,7 @@ extends KinematicBody2D
 export var animation_player_path := NodePath()
 export var sprite_path := NodePath()
 export var sword_hit_box_path := NodePath()
+export var hit_points_path := NodePath()
 export var base_gravity : float = 300
 export var gravity_multiplier : float = 2.0
 export var base_walk_speed : float = 400
@@ -16,6 +17,7 @@ var can_use_next_attack : bool = false
 
 onready var animation_player : AnimationPlayer = get_node(animation_player_path)
 onready var sprite : Sprite = get_node(sprite_path)
+onready var hit_points : HitPoints = get_node(hit_points_path)
 onready var _sword_hit_box : Area2D = get_node(sword_hit_box_path)
 
 func set_can_use_next_attack(value: bool) -> void:

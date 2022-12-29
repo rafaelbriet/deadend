@@ -1,6 +1,7 @@
 extends KingState
 
 func _enter(args := {}) -> void:
+	._enter(args)
 	root.animation_player.play("Jump")
 	
 	if args.has("do_jump"):
