@@ -537,6 +537,7 @@ texture = ExtResource( 5 )
 hframes = 6
 
 [node name="SwordHitBox" type="Area2D" parent="Sprite"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordHitBox"]
 position = Vector2( 45, 20 )
@@ -592,6 +593,7 @@ script = ExtResource( 18 )
 base_max_hit_points = 400
 
 [node name="Body" type="Area2D" parent="." groups=["Damageable"]]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2( 3.5, 19.5 )
