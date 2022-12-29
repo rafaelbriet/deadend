@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/King/States/king_state.gd"
 }, {
+"base": "Node",
+"class": "Score",
+"language": "GDScript",
+"path": "res://Scripts/score.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "SkeletonEnemy",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "HitPoints": "",
 "King": "",
 "KingState": "",
+"Score": "",
 "SkeletonEnemy": "",
 "SkeletonState": "",
 "State": "",
