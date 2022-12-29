@@ -6,6 +6,7 @@ export var sprite_path := NodePath()
 export var base_gravity : float = 980
 export var base_walk_speed : float = 100
 export var base_attack_distance : float = 150
+export var base_attack_damage : int = 40
 export var attack_hit_box_path := NodePath()
 export var hit_points_path := NodePath()
 
@@ -22,3 +23,8 @@ func flip_attack_hit_box(flip: bool) -> void:
 		attack_hit_box.scale.x = -1
 	else:
 		attack_hit_box.scale.x = 1
+
+
+func _on_attack_hit_box_area_entered(area):
+	if area.is_in_group("Damageable"):
+		area.owner.hit_points.damage(base_attack_damage)

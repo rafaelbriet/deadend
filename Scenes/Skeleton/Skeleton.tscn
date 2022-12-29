@@ -362,3 +362,5 @@ script = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2( 6.5, -3.5 )
 shape = SubResource( 7 )
+
+[connection signal="area_entered" from="Sprite/AttackHitBox" to="." method="_on_attack_hit_box_area_entered"]
