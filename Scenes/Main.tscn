@@ -27,48 +27,50 @@ layer = -1
 [node name="Enviroment_Foreground" parent="World" instance=ExtResource( 1 )]
 layer = 0
 
-[node name="Ground" type="StaticBody2D" parent="World"]
+[node name="Level" type="Node" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Level"]
 position = Vector2( -4, 143 )
 script = ExtResource( 6 )
 target_path = NodePath("../King")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Ground"]
 position = Vector2( 320, 347.5 )
 shape = SubResource( 1 )
 
-[node name="Skeleton_Spawn_Point" type="Node2D" parent="World/Ground"]
+[node name="Skeleton_Spawn_Point" type="Node2D" parent="Level/Ground"]
 position = Vector2( -528, 255 )
 
-[node name="Sprite" type="Sprite" parent="World/Ground/Skeleton_Spawn_Point"]
+[node name="Sprite" type="Sprite" parent="Level/Ground/Skeleton_Spawn_Point"]
 texture = ExtResource( 9 )
 hframes = 8
 
-[node name="Skeleton_Spawn_Point2" type="Node2D" parent="World/Ground"]
+[node name="Skeleton_Spawn_Point2" type="Node2D" parent="Level/Ground"]
 position = Vector2( 992, 255 )
 
-[node name="Sprite2" type="Sprite" parent="World/Ground/Skeleton_Spawn_Point2"]
+[node name="Sprite2" type="Sprite" parent="Level/Ground/Skeleton_Spawn_Point2"]
 texture = ExtResource( 9 )
 hframes = 8
 frame = 2
 
-[node name="King" parent="World" instance=ExtResource( 3 )]
+[node name="King" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 464, 320 )
 scale = Vector2( 3, 3 )
 
-[node name="Skeleton_Spawner" parent="World" instance=ExtResource( 7 )]
+[node name="Skeleton_Spawner" parent="Level" instance=ExtResource( 7 )]
 skeleton_scene = ExtResource( 8 )
 spawn_node_paths = [ NodePath("../Ground/Skeleton_Spawn_Point"), NodePath("../Ground/Skeleton_Spawn_Point2") ]
 target_node_path = NodePath("../King")
 skeleton_scale = Vector2( 3, 3 )
 time_between_spawn = 5.0
 
-[node name="Camera2D" type="Camera2D" parent="World"]
+[node name="HUD" parent="Level" instance=ExtResource( 10 )]
+king_path = NodePath("../King")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( -464, 0 )
 anchor_mode = 0
 current = true
 process_mode = 0
 script = ExtResource( 4 )
-target_path = NodePath("../King")
-
-[node name="HUD" parent="." instance=ExtResource( 10 )]
-king_path = NodePath("../World/King")
+target_path = NodePath("../Level/King")
