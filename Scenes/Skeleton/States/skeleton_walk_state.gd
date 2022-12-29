@@ -15,8 +15,10 @@ func _physics_process_state(delta: float) -> void:
 	
 	if (direction_to_target > 0):
 		root.sprite.flip_h = false
+		root.flip_attack_hit_box(false)
 	else:
 		root.sprite.flip_h = true
+		root.flip_attack_hit_box(true)
 		
 	var distance_to_target = root.global_position.distance_to(root.target.global_position)
 	
