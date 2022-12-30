@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Enviroment_Foreground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/start_maximized.gd" type="Script" id=2]
@@ -10,11 +10,14 @@
 [ext_resource path="res://Scenes/GameManager/States/game_gameplay_state.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/GameManager/States/game_entry_state.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Level/level.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/GameManager/States/game_over_state.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/GameOver/game_over.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 main_menu_scene = ExtResource( 6 )
 gameplay_scene = ExtResource( 10 )
+game_over_scene = ExtResource( 12 )
 
 [node name="StartMaximized" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -31,6 +34,9 @@ script = ExtResource( 7 )
 
 [node name="Gameplay_State" type="Node" parent="GameStateMachine"]
 script = ExtResource( 8 )
+
+[node name="GameOver_State" type="Node" parent="GameStateMachine"]
+script = ExtResource( 11 )
 
 [node name="World" type="Node2D" parent="."]
 
