@@ -46,7 +46,7 @@ hframes = 8
 frame = 2
 
 [node name="King" parent="." instance=ExtResource( 1 )]
-position = Vector2( 464, 320 )
+position = Vector2( 464, 323 )
 scale = Vector2( 3, 3 )
 
 [node name="Skeleton_Spawner" parent="." instance=ExtResource( 2 )]
