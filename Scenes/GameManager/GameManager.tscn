@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/StateMachine/state_machine.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameManager/States/game_main_menu_state.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GameManager/States/game_gameplay_state.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GameManager/States/game_entry_state.gd" type="Script" id=4]
+
+[node name="GameManager" type="Node"]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("Entry_State")
+
+[node name="Entry_State" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="MainMenu_State" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Gameplay_State" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )

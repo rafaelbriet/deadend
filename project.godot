@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "GameManager",
+"language": "GDScript",
+"path": "res://Scenes/GameManager/game_manager.gd"
+}, {
+"base": "State",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://Scenes/GameManager/States/game_state.gd"
+}, {
+"base": "Node",
 "class": "HitPoints",
 "language": "GDScript",
 "path": "res://Scripts/hit_points.gd"
@@ -50,6 +60,8 @@ _global_script_classes=[ {
 "path": "res://Scripts/StateMachine/state_machine.gd"
 } ]
 _global_script_class_icons={
+"GameManager": "",
+"GameState": "",
 "HitPoints": "",
 "King": "",
 "KingState": "",
