@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Enviroment_Foreground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/start_maximized.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_normal.tres" type="StyleBox" id=3]
-[ext_resource path="res://Scripts/camera_simple_follow.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/MainMenu/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Enviroment_Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_hover.tres" type="StyleBox" id=6]
 [ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_start_button.tres" type="DynamicFont" id=12]
@@ -26,18 +26,16 @@ layer = -1
 [node name="Enviroment_Foreground" parent="World" instance=ExtResource( 1 )]
 layer = 0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -232 )
-anchor_mode = 0
-current = true
-process_mode = 0
-script = ExtResource( 4 )
-
 [node name="MainMenu" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -234.0
 margin_bottom = -234.0
+script = ExtResource( 4 )
+initial_camera_offset = Vector2( 0, -232 )
+title_fade_duration = 0.2
+
+[node name="Tween" type="Tween" parent="MainMenu"]
 
 [node name="Background" type="ColorRect" parent="MainMenu"]
 anchor_right = 1.0
@@ -45,25 +43,29 @@ anchor_bottom = 1.0
 margin_bottom = -274.0
 color = Color( 0.0470588, 0.0666667, 0.133333, 1 )
 
-[node name="Name" type="Label" parent="MainMenu"]
+[node name="Control" type="Control" parent="MainMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="MainMenu/Control"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -266.0
+margin_left = 178.0
 margin_top = 96.0
-margin_right = 266.0
+margin_right = 710.0
 margin_bottom = 133.0
 custom_fonts/font = ExtResource( 13 )
 text = "Curserd Forest"
 
-[node name="StartGameButton" type="Button" parent="MainMenu"]
+[node name="StartGameButton" type="Button" parent="MainMenu/Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -63.5
-margin_top = -39.0
-margin_right = 63.5
-margin_bottom = 12.0
+margin_left = 380.5
+margin_top = 196.0
+margin_right = 507.5
+margin_bottom = 247.0
 custom_fonts/font = ExtResource( 12 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 6 )
@@ -71,3 +73,12 @@ custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 2 )
 custom_styles/normal = ExtResource( 3 )
 text = "Start"
+
+[node name="Camera2D" type="Camera2D" parent="MainMenu"]
+position = Vector2( 0, 234 )
+offset = Vector2( 0, -232 )
+anchor_mode = 0
+current = true
+process_mode = 0
+
+[connection signal="pressed" from="MainMenu/Control/StartGameButton" to="MainMenu" method="_on_start_game_button_pressed"]
