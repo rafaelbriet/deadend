@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Run.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/SFX/Warrior Pack/hit3.wav" type="AudioStream" id=27]
 [ext_resource path="res://Assets/SFX/Warrior Pack/hut2.wav" type="AudioStream" id=28]
 [ext_resource path="res://Assets/SFX/Warrior Pack/death3.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/SFX/Final_FreeSound/Walk_King.wav" type="AudioStream" id=30]
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 26, 11 )
@@ -624,6 +625,23 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Run_SFX_AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.45945 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 8.5, 22.5 )
@@ -642,8 +660,9 @@ jump_audio_stream_path = NodePath("Jump_SFX_AudioStreamPlayer")
 death_audio_stream_path = NodePath("Death_SFX_AudioStreamPlayer")
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 5 )
-hframes = 6
+texture = ExtResource( 2 )
+hframes = 8
+frame = 1
 
 [node name="SwordHitBox" type="Area2D" parent="Sprite"]
 collision_mask = 2
@@ -724,5 +743,9 @@ stream = ExtResource( 28 )
 [node name="Death_SFX_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
 pitch_scale = 0.8
+
+[node name="Run_SFX_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = -6.0
 
 [connection signal="area_entered" from="Sprite/SwordHitBox" to="." method="_on_sword_hit_box_area_entered"]
