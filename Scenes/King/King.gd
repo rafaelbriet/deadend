@@ -11,6 +11,7 @@ export var base_walk_speed : float = 400
 export var base_jump_impulse : float = 800
 export var base_jump_move_speed : float = 100
 export var base_attack_damage : int = 40
+export var jump_audio_stream_path :=  NodePath()
 
 var velocity : Vector2 = Vector2.ZERO
 var can_use_next_attack : bool = false
@@ -18,6 +19,7 @@ var can_use_next_attack : bool = false
 onready var animation_player : AnimationPlayer = get_node(animation_player_path)
 onready var sprite : Sprite = get_node(sprite_path)
 onready var hit_points : HitPoints = get_node(hit_points_path)
+onready var jump_audio_stream : AudioStreamPlayer = get_node(jump_audio_stream_path)
 onready var _sword_hit_box : Area2D = get_node(sword_hit_box_path)
 
 func set_can_use_next_attack(value: bool) -> void:

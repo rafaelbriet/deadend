@@ -10,6 +10,7 @@ func _enter(args := {}) -> void:
 		elif Input.is_action_pressed("move_right"):
 			root.velocity.x = root.base_jump_move_speed
 		
+		root.jump_audio_stream.play(0)
 		root.velocity.y = -root.base_jump_impulse
 
 
