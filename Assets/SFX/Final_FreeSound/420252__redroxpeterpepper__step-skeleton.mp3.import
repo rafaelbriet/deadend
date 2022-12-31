@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/420252__redroxpeterpepper__step-skeleton.mp3-f36f998fedf42622afdd22065719c0d8.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Final_FreeSound/420252__redroxpeterpepper__step-skeleton.mp3"
+dest_files=[ "res://.import/420252__redroxpeterpepper__step-skeleton.mp3-f36f998fedf42622afdd22065719c0d8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
