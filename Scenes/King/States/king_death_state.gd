@@ -5,6 +5,7 @@ func _enter(args := {}) -> void:
 	._enter(args)
 	root.animation_player.play("Death")
 	root.animation_player.connect("animation_finished", self, "_on_animation_finished")
+	root.death_audio_stream.play(0.20)
 
 
 func _exit() -> void:
