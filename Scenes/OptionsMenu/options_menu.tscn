@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/MainMenu/Styles/start_button_hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/MainMenu/Styles/start_button_normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_start_button.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_game_title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/OptionsMenu/options_menu.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Name" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 75.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 4 )
+text = "Options"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.0
+margin_top = -53.0
+margin_right = 83.0
+margin_bottom = 53.0
+custom_constants/separation = 16
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+margin_right = 165.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

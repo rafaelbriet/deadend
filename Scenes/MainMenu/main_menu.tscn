@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_start_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://Scenes/MainMenu/main_menu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_hover.tres" type="StyleBox" id=4]
 [ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_game_title.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/OptionsMenu/options_menu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -18,8 +19,13 @@ margin_bottom = -234.0
 script = ExtResource( 3 )
 initial_camera_offset = Vector2( 0, -232 )
 title_fade_duration = 0.2
+menu_container_fade_duration = 0.25
+menu_container_slide_duration = 0.25
+container_tween_delay = 0.125
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Tween_Pagination" type="Tween" parent="."]
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -27,29 +33,32 @@ anchor_bottom = 1.0
 margin_bottom = -274.0
 color = Color( 0.0470588, 0.0666667, 0.133333, 1 )
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Name" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 178.0
-margin_top = 96.0
-margin_right = 710.0
-margin_bottom = 133.0
+[node name="Name" type="Label" parent="MainMenu"]
+anchor_right = 1.0
+margin_top = 75.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 5 )
 text = "Curserd Forest"
+align = 1
 
-[node name="StartGameButton" type="Button" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 380.5
-margin_top = 196.0
-margin_right = 507.5
-margin_bottom = 247.0
+margin_left = -82.0
+margin_top = -53.0
+margin_right = 83.0
+margin_bottom = 53.0
+custom_constants/separation = 16
+
+[node name="StartGameButton" type="Button" parent="MainMenu/VBoxContainer"]
+margin_right = 165.0
+margin_bottom = 51.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )
@@ -58,6 +67,21 @@ custom_styles/disabled = SubResource( 2 )
 custom_styles/normal = ExtResource( 2 )
 text = "Start"
 
+[node name="OptionsButton" type="Button" parent="MainMenu/VBoxContainer"]
+margin_top = 67.0
+margin_right = 165.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+text = "Options"
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 6 )]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, 234 )
 offset = Vector2( 0, -232 )
@@ -65,4 +89,6 @@ anchor_mode = 0
 current = true
 process_mode = 0
 
-[connection signal="pressed" from="Control/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="back_button_pressed" from="OptionsMenu" to="." method="_on_back_button_pressed"]
