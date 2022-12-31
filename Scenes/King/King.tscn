@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Medieval King Pack 2/Sprites/Run.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Assets/SFX/Warrior Pack/lightattack1.wav" type="AudioStream" id=24]
 [ext_resource path="res://Assets/SFX/Warrior Pack/lightattack3.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/SFX/Warrior Pack/lightattack2.wav" type="AudioStream" id=26]
+[ext_resource path="res://Assets/SFX/Warrior Pack/hit3.wav" type="AudioStream" id=27]
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 26, 11 )
@@ -445,6 +446,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hit_SFX_AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.00408837 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "Idle"
@@ -623,7 +638,7 @@ base_jump_impulse = 600.0
 base_jump_move_speed = 250.0
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 hframes = 4
 
 [node name="SwordHitBox" type="Area2D" parent="Sprite"]
@@ -695,5 +710,8 @@ shape = SubResource( 30 )
 volume_db = -4.0
 pitch_scale = 0.8
 bus = "SFX"
+
+[node name="Hit_SFX_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
 
 [connection signal="area_entered" from="Sprite/SwordHitBox" to="." method="_on_sword_hit_box_area_entered"]
