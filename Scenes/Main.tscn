@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Enviroment_Foreground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/start_maximized.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Level/level.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/GameManager/States/game_over_state.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/GameOver/game_over.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Music/Witchcraft_mp3/Forgotten Words(loop - guitar - magnificent - ancient).mp3" type="AudioStream" id=13]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -45,3 +46,8 @@ layer = -1
 
 [node name="Enviroment_Foreground" parent="World" instance=ExtResource( 1 )]
 layer = 0
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+bus = "Music"

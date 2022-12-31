@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Forgotten Words(loop - guitar - magnificent - ancient).mp3-e6a1acdd68b76f5878f79e2d8e8c227b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Witchcraft_mp3/Forgotten Words(loop - guitar - magnificent - ancient).mp3"
+dest_files=[ "res://.import/Forgotten Words(loop - guitar - magnificent - ancient).mp3-e6a1acdd68b76f5878f79e2d8e8c227b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
