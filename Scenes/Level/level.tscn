@@ -49,6 +49,12 @@ frame = 2
 position = Vector2( 464, 323 )
 scale = Vector2( 3, 3 )
 
+[node name="Camera2D" type="Camera2D" parent="King"]
+position = Vector2( -154.667, -107.667 )
+anchor_mode = 0
+current = true
+limit_top = 0
+
 [node name="Skeleton_Spawner" parent="." instance=ExtResource( 2 )]
 skeleton_scene = ExtResource( 4 )
 spawn_node_paths = [ NodePath("../Ground/Skeleton_Spawn_Point"), NodePath("../Ground/Skeleton_Spawn_Point2") ]
