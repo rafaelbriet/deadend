@@ -429,20 +429,24 @@ shape = SubResource( 7 )
 [node name="Attack_AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 15 )
 max_distance = 928.0
+bus = "SFX"
 
 [node name="Hit_AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )
 pitch_scale = 0.7
 max_distance = 928.0
+bus = "SFX"
 
 [node name="Death_AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
 volume_db = -4.0
 pitch_scale = 0.7
 max_distance = 928.0
+bus = "SFX"
 
 [node name="Walk_AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 18 )
 max_distance = 928.0
+bus = "SFX"
 
 [connection signal="area_entered" from="Sprite/AttackHitBox" to="." method="_on_attack_hit_box_area_entered"]
