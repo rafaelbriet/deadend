@@ -4,6 +4,7 @@ export var king_path := NodePath()
 export var hit_points_bar_path := NodePath()
 export var score_path := NodePath()
 export var score_board_path := NodePath()
+export var fade_in_duration : float = 0.25
 
 onready var _king : King = get_node(king_path)
 onready var _hit_points_bar : TextureProgress = get_node(hit_points_bar_path)

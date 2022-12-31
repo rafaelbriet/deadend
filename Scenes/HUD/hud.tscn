@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/HUD/Fonts/quinque_five.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Graphics/HP_Bar/bg.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Graphics/HP_Bar/red.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/HUD/hud.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/HUD/hud_tween.gd" type="Script" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 4 )
 hit_points_bar_path = NodePath("Control/KingHitPoints")
 score_board_path = NodePath("Control/Score")
+fade_in_duration = 0.5
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
@@ -41,3 +43,7 @@ texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 stretch_margin_left = 32
 stretch_margin_right = 32
+
+[node name="Tween" type="Tween" parent="."]
+script = ExtResource( 5 )
+tween_target_path = NodePath("../Control")
