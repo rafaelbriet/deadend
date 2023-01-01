@@ -4,9 +4,9 @@
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://Scenes/MainMenu/main_menu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/MainMenu/Styles/start_button_hover.tres" type="StyleBox" id=4]
-[ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_game_title.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/OptionsMenu/options_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/menu_tween.gd" type="Script" id=7]
+[ext_resource path="res://Assets/logo.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -30,9 +30,9 @@ container_tween_delay = 0.125
 
 [node name="Tween_Logo" type="Tween" parent="."]
 script = ExtResource( 7 )
-tween_target_path = NodePath("../MainMenu/Name")
-inital_position = Vector2( 0, 60 )
-final_position = Vector2( 0, 75 )
+tween_target_path = NodePath("../MainMenu/Logo")
+inital_position = Vector2( 232, 50 )
+final_position = Vector2( 232, 60 )
 
 [node name="Tween_Menu" type="Tween" parent="."]
 script = ExtResource( 7 )
@@ -51,13 +51,13 @@ color = Color( 0.0470588, 0.0666667, 0.133333, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Name" type="Label" parent="MainMenu"]
+[node name="Logo" type="TextureRect" parent="MainMenu"]
 anchor_right = 1.0
-margin_top = 75.0
-margin_bottom = 112.0
-custom_fonts/font = ExtResource( 5 )
-text = "Curserd Forest"
-align = 1
+margin_left = 232.0
+margin_top = 52.0
+margin_right = -232.0
+margin_bottom = 142.0
+texture = ExtResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 anchor_left = 0.5
