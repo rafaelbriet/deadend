@@ -12,7 +12,7 @@ func _enter(args := {}) -> void:
 		
 		root.jump_audio_stream.play(0)
 		root.velocity.y = -root.base_jump_impulse
-
+		root.stamina.damage(root.jump_staminha_cost)
 
 func _physics_process_state(delta: float) -> void:
 	if root.velocity.y > 0:

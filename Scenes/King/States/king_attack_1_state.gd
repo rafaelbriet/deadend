@@ -5,6 +5,7 @@ func _enter(args := {}) -> void:
 	root.animation_player.play("Attack_1")
 	root.animation_player.connect("animation_finished", self, "_on_animation_finished")
 	root.can_use_next_attack = false
+	root.stamina.damage(root.attack_1_stamina_cost)
 
 
 func _exit() -> void:
