@@ -20,9 +20,11 @@ func _exit() -> void:
 	root.hit_points.disconnect("hit_points_depleted", self, "on_hit_points_depleted")
 
 
-func on_hit_points_damaged() -> void:
-	state_machine.transition_to("Hit_State")
-
+func on_hit_points_damaged(damage_origin) -> void:
+	if damage_origin == HitPoints.DamageOrigin.ENEMY:
+		state_machine.transition_to("Hit_State")
+	else:
+		print("Damage Origin: Stamina")
 
 func on_hit_points_depleted() -> void:
 	state_machine.transition_to("Death_State")

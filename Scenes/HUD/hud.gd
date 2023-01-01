@@ -30,7 +30,7 @@ func _ready() -> void:
 	_stamina_bar.value = _king.stamina.base_max_hit_points
 
 
-func _on_hit_points_damaged() -> void:
+func _on_hit_points_damaged(damage_origin) -> void:
 	_hit_points_bar.value = _king.hit_points._current_hit_points
 
 
@@ -38,5 +38,5 @@ func _on_score_changed():
 	_score_board.set_text(str(_score.current_score))
 
 
-func _on_stamina_damaged():
+func _on_stamina_damaged(damage_origin):
 	_stamina_bar.value = _king.stamina._current_hit_points
