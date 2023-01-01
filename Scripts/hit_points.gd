@@ -22,3 +22,8 @@ func damage(damageAmount: int, damageOrigin = DamageOrigin.ENEMY) -> void:
 	
 	if _current_hit_points <= 0:
 		emit_signal("hit_points_depleted")
+
+
+func recover(recover_amount: int) -> void:
+	_current_hit_points += recover_amount
+	emit_signal("hit_points_damaged", DamageOrigin.ENEMY)

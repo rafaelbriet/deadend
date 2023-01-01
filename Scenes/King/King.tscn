@@ -674,6 +674,8 @@ base_jump_impulse = 600.0
 base_jump_move_speed = 250.0
 jump_audio_stream_path = NodePath("Jump_SFX_AudioStreamPlayer")
 death_audio_stream_path = NodePath("Death_SFX_AudioStreamPlayer")
+stamina_recover_amount = 5
+stamina_recover_wait_time = 0.5
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

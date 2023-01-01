@@ -19,6 +19,8 @@ export var attack_2_stamina_cost : float = 4.0
 export var attack_3_stamina_cost : float = 5.0
 export var jump_staminha_cost : float = 5.0
 export var walk_stamina_cost : float = 1.0
+export var stamina_recover_amount : int = 3
+export var stamina_recover_wait_time : float = 1.0
 
 var velocity : Vector2 = Vector2.ZERO
 var can_use_next_attack : bool = false
