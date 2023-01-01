@@ -31,14 +31,14 @@ position = Vector2( 464, 0 )
 shape = SubResource( 1 )
 
 [node name="Skeleton_Spawn_Point" type="Node2D" parent="Ground"]
-position = Vector2( -100, -255 )
+position = Vector2( -100, -96 )
 
 [node name="Sprite" type="Sprite" parent="Ground/Skeleton_Spawn_Point"]
 texture = ExtResource( 10 )
 hframes = 8
 
 [node name="Skeleton_Spawn_Point2" type="Node2D" parent="Ground"]
-position = Vector2( 1028, -255 )
+position = Vector2( 1028, -96 )
 
 [node name="Sprite2" type="Sprite" parent="Ground/Skeleton_Spawn_Point2"]
 texture = ExtResource( 10 )
