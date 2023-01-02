@@ -45,3 +45,4 @@ This game would not be possible if not for these amazing people sharing their wo
 ## Fonts
 
 - [Berry Rotunda by Typo-Graf](https://www.dafont.com/pt/berry-rotunda.font)
+- [QuinqueFive by GGBotNet](https://ggbot.itch.io/quinquefive-font)
