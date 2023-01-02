@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_game_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/MainMenu/Fonts/main_menu_start_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/MainMenu/Styles/start_button_hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Scenes/MainMenu/Styles/start_button_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scenes/CreditsMenu/credits_menu.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="CreditsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Name" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 75.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 1 )
+text = "Credits"
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -366.0
+margin_top = -100.0
+margin_right = 366.0
+margin_bottom = 130.0
+text = "This game was made by Rafael Briet (https://rockprogramacaoegames.com.br/)
+
+# Credits
+
+This game would not be possible if not for these amazing people sharing their work for free online. Thank you!
+
+## Music
+
+- Forgotton Words by MakotoHiramatsu (https://makotohiramatsu.itch.io/witchcraft)
+
+## Graphics
+
+- Medieval King Pack 2 by LuizMelo (https://luizmelo.itch.io/medieval-king-pack-2)
+- Monsters Creatures Fantasy by LuizMelo (https://luizmelo.itch.io/monsters-creatures-fantasy)
+- Free Pixel Art Forest by edermunizz (https://edermunizz.itch.io/free-pixel-art-forest)
+- Pixel Art HP Bar UI by GX310 (https://gx310.itch.io/pixel-art-hp-bar)
+- Pxiel Art UI borders by GX310 (https://gx310.itch.io/pxiel-art-ui-borders)
+
+## Sound effects
+
+- snd_footsteps_grass.wav by drowsyprincess (https://freesound.org/people/drowsyprincess/sounds/463854/)
+- Grass_Footsteps.wav by D001447733 (https://freesound.org/people/D001447733/sounds/464609/)
+- Hiking Boot Footsteps on Grass by Fission9 (https://freesound.org/people/Fission9/sounds/521587/)
+- Falling Bones.wav by spookymodem (https://freesound.org/people/spookymodem/sounds/202091/)
+- step skeleton by RedRoxPeterPepper (https://freesound.org/people/RedRoxPeterPepper/sounds/420252/)
+- step skeleton by RedRoxPeterPepper (https://freesound.org/people/RedRoxPeterPepper/sounds/420252/)
+
+## Fonts
+
+- Berry Rotunda by Typo-Graf (https://www.dafont.com/pt/berry-rotunda.font)"
+
+[node name="BackButtonContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -174.0
+margin_top = -76.0
+margin_right = 174.0
+margin_bottom = -25.0
+alignment = 1
+
+[node name="BackButton" type="Button" parent="BackButtonContainer"]
+margin_left = 120.0
+margin_right = 228.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = ExtResource( 4 )
+text = "Back"
+
+[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
