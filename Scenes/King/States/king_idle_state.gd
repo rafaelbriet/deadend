@@ -14,6 +14,7 @@ func _enter(args := {}) -> void:
 
 
 func _exit() -> void:
+	._exit()
 	_timer.queue_free()
 
 
