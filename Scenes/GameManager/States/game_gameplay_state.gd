@@ -2,6 +2,7 @@ extends GameState
 
 var _level_scene : Node
 var _paused_scene : Node
+var _mobile_controls : Node
 var _king : King
 var _tween : Tween
 var _is_paused : bool = false
@@ -15,6 +16,7 @@ func _enter(args := {}) -> void:
 	_paused_scene = _create_scene_instance(root.gameplay_paused_scene)
 	_paused_scene.connect("resume_button_pressed", self, "_on_resume_button_pressed")
 	_paused_scene.visible = false
+	_mobile_controls = 	_create_scene_instance(root.mobile_controls)
 
 
 func _process_state(delta: float) -> void:
@@ -27,14 +29,20 @@ func _process_state(delta: float) -> void:
 		_unpause()
 
 
+func _exit() -> void:
+	._exit()
+	_mobile_controls.queue_free()
+
 func _pause():
 	_level_scene.get_tree().paused = true
 	_paused_scene.visible = true
+	_mobile_controls.update_paused_icon(true)
 
 
 func _unpause():
 	_level_scene.get_tree().paused = false
 	_paused_scene.visible = false
+	_mobile_controls.update_paused_icon(false)
 
 
 func _on_tween_all_completed() -> void:
