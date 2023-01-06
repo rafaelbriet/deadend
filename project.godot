@@ -92,7 +92,8 @@ GameOptions="*res://Scripts/game_options.gd"
 
 window/size/width=928
 window/size/height=510
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 
