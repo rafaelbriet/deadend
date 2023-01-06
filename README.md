@@ -32,6 +32,8 @@ This game would not be possible if not for these amazing people sharing their wo
 - [Free Pixel Art Forest by edermunizz](https://edermunizz.itch.io/free-pixel-art-forest)
 - [Pixel Art HP Bar UI by GX310](https://gx310.itch.io/pixel-art-hp-bar)
 - [Pxiel Art UI borders by GX310](https://gx310.itch.io/pxiel-art-ui-borders)
+- [Onscreen Controls by Kenney](https://www.kenney.nl/assets/onscreen-controls)
+- [Sword, fill icon by Phosphor Icons](https://www.iconfinder.com/icons/9023974/sword_fill_icon)
 
 ## Sound effects
 
