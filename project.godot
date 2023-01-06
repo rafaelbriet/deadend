@@ -84,6 +84,10 @@ config/name="Dead End"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameOptions="*res://Scripts/game_options.gd"
+
 [display]
 
 window/size/width=928

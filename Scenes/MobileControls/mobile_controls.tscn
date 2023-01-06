@@ -15,33 +15,35 @@ script = ExtResource( 6 )
 pause_icon = ExtResource( 5 )
 play_icon = ExtResource( 7 )
 
-[node name="Jump_TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchButtons" type="Node" parent="."]
+
+[node name="Jump_TouchScreenButton" type="TouchScreenButton" parent="TouchButtons"]
 position = Vector2( 776, 434 )
 scale = Vector2( 0.75, 0.75 )
 normal = ExtResource( 4 )
 action = "jump"
 
-[node name="Attack_TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Attack_TouchScreenButton" type="TouchScreenButton" parent="TouchButtons"]
 position = Vector2( 852, 434 )
 scale = Vector2( 0.75, 0.75 )
 normal = ExtResource( 2 )
 action = "attack"
 
-[node name="Left_TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Left_TouchScreenButton" type="TouchScreenButton" parent="TouchButtons"]
 position = Vector2( 16, 434 )
 scale = Vector2( 0.75, 0.75 )
 normal = ExtResource( 1 )
 passby_press = true
 action = "move_left"
 
-[node name="Right_TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Right_TouchScreenButton" type="TouchScreenButton" parent="TouchButtons"]
 position = Vector2( 90, 434 )
 scale = Vector2( 0.75, 0.75 )
 normal = ExtResource( 3 )
 passby_press = true
 action = "move_right"
 
-[node name="Pause_TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Pause_TouchScreenButton" type="TouchScreenButton" parent="TouchButtons"]
 position = Vector2( 16, 8 )
 scale = Vector2( 0.75, 0.75 )
 normal = ExtResource( 5 )
