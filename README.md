@@ -13,6 +13,10 @@ A/D - Move left/right
 E - Attack (Press in sequence for the combo)
 Space - Jump
 
+# Play
+
+You can play the game in your browser [here](https://rafaelbriet.itch.io/dead-end)
+
 # About the game
 
 This is a small game I made during the last week of 2022 in my free time as a way to learn the Godot Game Engine.
